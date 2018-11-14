@@ -1,4 +1,5 @@
 ﻿import pinyin_dict_firstletter from './pinyin_dict_firstletter';
+import pinyin_dict_notone from './pinyin_dict_notone';
 
 var toneMap =
     {
@@ -46,7 +47,7 @@ var pinyinUtil =
                 dict.firstletter = pinyin_dict_firstletter;
             }
             // 如果导入了 pinyin_dict_notone.js
-            if(window.pinyin_dict_notone)
+            if(pinyin_dict_notone)
             {
                 dict.notone = {};
                 dict.py2hz = pinyin_dict_notone; // 拼音转汉字
@@ -71,7 +72,7 @@ var pinyinUtil =
                 }
 
                 // 拼音 -> 汉字
-                if(window.pinyin_dict_notone)
+                if(pinyin_dict_notone)
                 {
                     // 对于拼音转汉字，我们优先使用pinyin_dict_notone字典文件
                     // 因为这个字典文件不包含生僻字，且已按照汉字使用频率排序

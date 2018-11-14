@@ -102,7 +102,7 @@
                 return style;
             },
             title_link () {
-                const title = pinyinUtil.getFirstLetter(this.title);
+                const title = pinyinUtil.getPinyin(this.title, '_', false); // pinyinUtil.getFirstLetter(this.title);
                 return title.replace(/\s/g, '_');
             }
         },
