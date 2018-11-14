@@ -102,7 +102,16 @@
                 return style;
             },
             title_link () {
-                const title = pinyinUtil.getFirstLetter(this.title);
+                // Generate four random hex digits. 
+                function S4 () {
+                    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+                };
+                // Generate a GUID like string by concatenating random hexadecimal. 
+                function guid () {
+                    return `${S4()}${S4()}_${S4()}_${S4()}_${S4()}_${S4()}${S4()}${S4()}`;
+                };
+
+                const title = `${pinyinUtil.getFirstLetter(this.title)}_${guid()}`;
                 return title.replace(/\s/g, '_');
             }
         },
